@@ -11,9 +11,20 @@ const solicitacaoColetaSchema = new mongoose.Schema({
     ref: 'Cliente',
     required: true,
   },
-  carga: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Carga',
+  peso: {
+    type: Number,
+    required: true,
+  },
+  valor: {
+    type: Number,
+    required: true,
+  },
+  dimensoes: {
+    type: String,
+    required: true,
+  },
+  material: {
+    type: String,
     required: true,
   },
 }, { timestamps: true }); 
