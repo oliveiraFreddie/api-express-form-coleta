@@ -1,19 +1,25 @@
-const express = require("express")
-const cors = require("cors")
-const app = express()
+const express = require("express");
+const cors = require("cors");
+const app = express();
 
-app.use(cors())
+// Importar o roteador principal das rotas
+const routes = require("./routes");
 
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
+app.use(express.static('public'));
+
+// Usar o roteador principal no Express
+app.use("/api", routes);
 
 app.listen(3000, function() {
-    console.log('Servidor Online!!!') 
-})
+    console.log('Servidor Online!!!');
+});
 
 // DB Connection
-const conn = require("./db/conn")
-
+const conn = require("./db/conn");
 conn();
+
 
 // 270Ab9HxPyisvaQK
 
